@@ -1,0 +1,13 @@
+<html>
+  <body bgcolor="#ffffff">
+    <h1><a target="_blank" href="[% file %]">[% title %]</a></h1>
+    <table>
+      <tr>
+        <td>
+          <EMBED SRC="[% file %]" type="[% mime_type %]" AUTOPLAY=true></EMBED>
+                [%# d967cd9dcffd4b8f979d591e9a222c84 %]
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

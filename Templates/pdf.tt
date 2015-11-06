@@ -1,0 +1,12 @@
+<html>
+  <body bgcolor="#ffffff">
+    <a target="_blank" href="[% file %]"><h1>[% title %]</h1></a>
+    <table>
+      <tr>
+        <td>
+          <a target="_blank" href="[% file %]"><embed src="[% file %]"></a>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

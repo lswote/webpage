@@ -1,0 +1,15 @@
+<html>
+<head>
+[% INCLUDE head.tt %]
+<script src="../javascript/main.js"></script>
+</head>
+<body>
+<!--div class="toggle_section[% PageNumber %]" </div>
+  <h2 class="toggle section[% PageNumber %]">It works!</h2>
+  <div class="toggle section[% PageNumber %]" id="main_div">
+  </div>
+</div>
+<input type=button id="main_button" value="Test Me"-->
+[% INCLUDE foot.tt %]
+</body>
+</html>

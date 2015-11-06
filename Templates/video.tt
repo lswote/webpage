@@ -1,0 +1,15 @@
+<html>
+  <body bgcolor="#ffffff">
+    <h1><a target="_blank" href="[% file %]">[% title %]</a></h1>
+    <table>
+      <tr>
+        <td>
+          <video controls autoplay">
+          <source src="[% file %]" />
+          Your browser does not support the video tag.
+          </video>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

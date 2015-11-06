@@ -1,0 +1,5 @@
+<div class="toggle_section[% data.search_results.PageNumber %]" id="defendants-[% data.search_results.PageNumber %]">
+  <h2 class="toggle case[% data.search_results.PageNumber %]" id="toggle_defendants-[% data.search_results.PageNumber %]">Defendants</h2>
+  <div class="toggle case[% data.search_results.PageNumber %]">
+  </div>
+</div>

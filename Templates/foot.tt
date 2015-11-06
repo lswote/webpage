@@ -1,0 +1,27 @@
+<script>
+
+function toggly() {
+   var y=$(this).children().eq('0').html();
+   y=y.substring(1).replace(/^\s+|\s+$/g, "");
+   var x=$(this).children().eq('1');
+   x.toggle();
+   if (x.css('display')=="none") {
+        $(this).children().eq('0').html('&#9658;'+y);
+   } else {
+        $(this).children().eq('0').html('&#9660;'+y);
+   }
+}
+
+$(document).ready(function() {
+   if (1) // show the sections
+   {
+       $('h2.section[% PageNumber %]').prepend('&#9660;');
+       $('div.section[% PageNumber %]').show();
+   } else { // hide the sections
+       $('h2.section[% PageNumber %]').prepend('&#9658;');
+       $('div.section[% PageNumber %]').hide();
+   }
+   $('.toggle_section[% PageNumber %]').click(toggly);
+});
+
+</script>

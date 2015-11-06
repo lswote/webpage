@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>[% title %]</title>
+    [% INCLUDE "head.tt" %]
+    <script src="../javascript/main.js"></script>
+  </head>
+  
+  <body bgcolor="#ffffff">
+  
+    <h1>[% title %]</h1>
+    
+    <p>
+      Here are some interesting links:
+      <ul>
+    
+      [% FOREACH link = weblinks %]
+        <li><a href="[%  link.url %]">[% link.title %]</a></li> 
+      [% END %]
+      </ul>
+      </p>
+
+    <div align="center"> [% copyright %]</div>
+
+    <div id="main_div"> </div>
+  
+  </body>
+</html>

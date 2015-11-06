@@ -1,0 +1,31 @@
+<script>
+
+html { 
+        background: url('/Images/Cartagena20.jpg') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+table th, table td {
+        white-space: nowrap;
+}
+
+table.listing {
+        border-collapse:collapse;
+}
+
+table.main {
+        background-color: #FF0000;
+}
+
+table.listing td, table.listing th {
+        background-color: #8db0d0;
+}
+
+table td.link {
+        white-space: nowrap;
+}
+
+</script>

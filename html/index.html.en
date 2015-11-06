@@ -1,0 +1,18 @@
+<html lang="en">
+  <head>
+    <title>minecraftfanhub</title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css" />
+    <script src="/javascript/initial.js"></script>
+    <script>
+    </script>
+  </head>
+  <body>
+    <div id="main_body">
+    Welcome to minecraftfanhub 
+    <a href="photos/"><h2>Hammond Family Photos</h2></a>
+    <a href="bhammond/"><h2>About Bruce Hammond</h2></a>
+    </div>
+  </body>
+</html>

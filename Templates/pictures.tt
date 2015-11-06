@@ -1,0 +1,31 @@
+<html>
+  <head>
+  [% INCLUDE head.tt %]
+  <link rel="stylesheet" href="/css/photos.css" />
+  </head>
+  <body>[% back_size=25 %][% vh_percent=92 %]
+    <h1>[% IF base != path %]<a href="javascript:void(0)" onclick="post_url('[% path.replace("'","%21") | uri %]/..', '[% base %]')"><img src="/Images/back.png" height="[% back_size %]" width="[% back_size %]"></a>[% END %]
+      [% title %]
+    </h1>
+    <table style="width: 100%">
+      <tr>
+        <td valign=top>
+          <div style="overflow-y: auto; height: [% vh_percent %]vh; width: 100%">
+          <table class="listing tablesorter" id="picture_listing" style="width: 100%">
+            <tbody>[% FOREACH record IN files %]
+            <tr>[% info = record.0 %][% file = record.1 %][% thumbnail = record.2 %][% url = "$path/$file" %]
+              <th valign="center" style="white-space: nowrap; padding-right: 10"><a style="text-decoration: none; color: #000000" href="javascript:void(0)" onclick="post_url('[% url.replace("'","%21") | uri %]', '[% base %]')">[% info %]</a></th>
+              <td class="link" style="padding-right: 25; min-width: 128; "><a href="javascript:void(0)" onclick="post_url('[% url.replace("'","%21") | uri %]', '[% base %]')">[% IF thumbnail.defined && thumbnail %]<img title="[% file %]" src="[% thumbnail %]">[% ELSE %][% file %][% END %]</a></td>
+            </tr>[% END %]
+            </tbody>
+          </table>
+          </div>
+        </td>
+        <td style="width: 100%">
+          <div id="busy_div" style="align: center; valign: middle; display: none; width:100%; height: 100%"><center><img src="/Images/loading.gif"></center></div>
+          <div id="main_div" style="overflow-y: auto; height: [% vh_percent %]vh; width: 100%;"></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
