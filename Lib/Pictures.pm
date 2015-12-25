@@ -22,13 +22,13 @@ sub new {
 
     my $q = $self->{cgi} = new CGI;
 
+    debug::utils->Traceback({map {$_ => $q->param($_)} $q->param()});
     $self->{template} = Template->new({INCLUDE_PATH => ['/Library/WebServer/Templates']});
     $self->{input} = {map {$_ => uri_unescape($q->param($_))} $q->param()};
     # single quote is missed by uri_unescape, so convert it manually
     $self->{input}->{path} =~ s/%21/'/g;
     # get the realpath and remove the trailing carriage return
     $self->{input}->{path} = (split /\n/, `/usr/local/bin/greadlink -f "$self->{input}->{path}"`)[0];
-    debug::utils->Log($self->{input});
 
     return $self;
 }
@@ -53,7 +53,6 @@ sub run {
                 my @filename_parts = split /\./, $filename;
                 my $thumbnail = join('.', @filename_parts[0 .. $#filename_parts-1]) . '_thumb.jpg';
                 my $thumbnail_path = "$self->{input}->{path}/$thumbnail";
-                debug::utils->Log("$filename, $thumbnail");
                 if (-e $thumbnail_path) {
                     $thumbnail = "/files/$$.$thumbnail";
                     `ln -s "$thumbnail_path" "/Library/WebServer/Documents/$thumbnail"`;
@@ -111,7 +110,6 @@ sub run {
         `ln -s "$self->{input}->{path}" "/Library/WebServer/Documents/$file"`;
         my $ft = File::Type->new();
         my $mime_type = $ft->mime_type($self->{input}->{path});
-        debug::utils->Log($mime_type);
         my  $vars = {
             title => $file_name,
             file => $file,
@@ -168,7 +166,6 @@ sub send_json {
 sub get_standard_date {
     my $in_date = shift;
     chomp($in_date);
-    debug::utils->Traceback($in_date);
 
     my $dt = Time::Piece->strptime(substr($in_date, 0, 19), '%Y:%m:%d %H:%M:%S');
     return $dt->strftime('%b %e, %Y %H:%M:%S');

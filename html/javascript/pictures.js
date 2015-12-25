@@ -1,5 +1,11 @@
 $(document).ready(function() {
-  $.post("/cgi-bin/pictures.cgi", {name: "pictures", path: "/Volumes/HammondFamily/Pictures/Archive", 'base': "/Volumes/HammondFamily/Pictures/Archive"},
+  var query_string = location.search;
+  var path = "/Volumes/HammondFamily/Pictures/Archive";
+  var query = query_string.split("=");
+  if (query.length >= 2) {
+    path = query[1];
+  }
+  $.post("/cgi-bin/pictures.cgi", {name: "pictures", path: path, 'base': "/Volumes/HammondFamily/Pictures/Archive"},
     function (result) {
       console.log("ready", result);
       $("#main_body").append(result["text"]);
