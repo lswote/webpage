@@ -1,11 +1,11 @@
 $(document).ready(function() {
   var query_string = location.search;
-  var path = "/Volumes/HammondFamily/Pictures/Archive";
+  var path = "/Users/HammondFamily/Pictures/Archive";
   var query = query_string.split("=");
   if (query.length >= 2) {
     path = query[1];
   }
-  $.post("/cgi-bin/pictures.cgi", {name: "pictures", path: path, 'base': "/Volumes/HammondFamily/Pictures/Archive"},
+  $.post("/cgi-bin/pictures.cgi", {name: "pictures", path: path, 'base': "/Users/HammondFamily/Pictures/Archive"},
     function (result) {
       console.log("ready", result);
       $("#main_body").append(result["text"]);
